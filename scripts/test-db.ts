@@ -1,26 +1,14 @@
-import 'dotenv/config';
-import mongoose from 'mongoose';
+import { connectToDatabase } from "../database/mongoose";
 
 async function main() {
-    const uri = process.env.MONGODB_URI;
-    if (!uri) {
-        console.error('ERROR: MONGODB_URI must be set in .env');
-        process.exit(1);
-    }
-
     try {
-        const startedAt = Date.now();
-        await mongoose.connect(uri, { bufferCommands: false });
-        const elapsed = Date.now() - startedAt;
-
-        const dbName = mongoose.connection?.name || '(unknown)';
-        const host = mongoose.connection?.host || '(unknown)';
-
-        console.log(`OK: Connected to MongoDB [db="${dbName}", host="${host}"], time=${elapsed}ms`);
-        await mongoose.connection.close();
+        await connectToDatabase();
+        // If connectToDatabase resolves without throwing, connection is OK
+        console.log("OK: Database connection succeeded");
         process.exit(0);
     } catch (err) {
-        console.error('DB CONNECTION FAILED:', err);
+        console.error("ERROR: Database connection failed");
+        console.error(err);
         process.exit(1);
     }
 }

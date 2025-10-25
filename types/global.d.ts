@@ -164,6 +164,16 @@ declare global {
         image?: string;
     };
 
+    type UserForNewsEmail = {
+        email: string;
+        name: string;
+        country?: string;
+        investmentGoals?: string;
+        riskTolerance?: string;
+        preferredIndustry?: string;
+    };
+
+
     type WatchlistNewsProps = {
         news?: MarketNewsArticle[];
     };
@@ -217,4 +227,4 @@ declare global {
     };
 }
 
-export {};
+export { };
