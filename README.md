@@ -33,3 +33,9 @@ FinSight is a modern, AI-driven stock market app built with Next.js, Shadcn, Bet
 ```bash
 git clone https://github.com/DishaS08/FinSight_stock-tracker-app.git
 cd FinSight_stock-tracker-app
+
+
+
+## 🌐 Live Project
+
+Check out the live app: [https://finverse-stock-tracker-app.vercel.app](https://finverse-stock-tracker-app.vercel.app)
